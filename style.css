@@ -445,3 +445,48 @@ html {
     text-align: center;
     color: #ff9d00;
 }
+/* Sidebar Info Box Styling */
+/* Sidebar Info Box Styling */
+.info-box-container {
+    text-align: left;
+}
+
+.syncpoint-tag {
+    border: 2px solid #00d2ff; /* Glowing Blue Border */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    background: rgba(0, 210, 255, 0.05);
+    margin-top: 10px;
+}
+
+.tag-title {
+    color: #ff9d00; /* Orange Text */
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.tag-series {
+    color: #ff9d00; /* Orange Text */
+    font-size: 0.9rem;
+}
+
+.category-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.category-nav li {
+    margin: 15px 0;
+}
+
+.category-nav a {
+    color: #b0c4de;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.category-nav a:hover {
+    color: #00d2ff;
+}
