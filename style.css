@@ -415,3 +415,33 @@ html {
 .suggestions-dropdown div:hover {
     background-color: #f1f3f4;
 }
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin: 25px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent-blue);
+    border-radius: 10px;
+}
+
+.image-container img {
+    max-width: 100%; /* Ensures image doesn't overflow the box */
+    height: auto;
+    border-radius: 5px;
+}
+
+.article-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    display: block;
+}
+
+.syncpoint-tag {
+    border: 2px solid var(--accent-blue);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    color: #ff9d00;
+}
