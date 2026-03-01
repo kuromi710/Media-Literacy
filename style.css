@@ -389,3 +389,29 @@ html {
     margin-top: 10px;
     border: 1px solid var(--border-color);
 }
+.suggestions-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #dfe1e5;
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 4px 6px rgba(32, 33, 36, 0.28);
+    z-index: 2000;
+    display: none;
+    overflow: hidden;
+    margin-top: -1px; /* Connects it to the search bar */
+}
+
+.suggestions-dropdown div {
+    padding: 12px 20px;
+    color: #202124;
+    cursor: pointer;
+    text-align: left;
+    font-size: 14px;
+}
+
+.suggestions-dropdown div:hover {
+    background-color: #f1f3f4;
+}

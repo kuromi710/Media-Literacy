@@ -54,17 +54,19 @@
             <p class="tagline">Where literacy meets technology.</p>
         </div>
 
-        <div class="google-search-container">
-            <div class="search-wrapper">
-                <span class="search-icon">🔍</span>
-                <input type="text" class="google-input" placeholder="Search SyncPoint...">
-                <span class="mic-icon">🎤</span>
-            </div>
-            <div class="button-row">
-                <button class="google-btn">SyncPoint Search</button>
-                <button class="google-btn">I'm Feeling Techy</button>
-            </div>
-        </div>
+       <div class="google-search-container">
+    <div class="search-wrapper" style="position: relative;">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="userSearch" class="google-input" placeholder="Search SyncPoint..." autocomplete="off">
+        <span class="mic-icon">🎤</span>
+        
+        <div id="suggestionsBox" class="suggestions-dropdown"></div>
+    </div>
+    <div class="button-row">
+        <button class="google-btn" onclick="executeSearch()">SyncPoint Search</button>
+        <button class="google-btn">I'm Feeling Techy</button>
+    </div>
+</div>
     </main>
 
     <script>
@@ -85,6 +87,80 @@
             document.getElementById('menuSidebar').classList.remove('open');
             document.getElementById('overlay').classList.remove('active-overlay');
         }
+        function executeSearch() {
+    // Get the text the user typed and make it lowercase
+    const query = document.getElementById('userSearch').value.toLowerCase().trim();
+
+    if (query.includes("WHAT IS MEDIA LITERACY?") || query === "media") {
+        window.location.href = "media-literacy.html";
+    } 
+    else if (query.includes("WHAT IS TECHNOLOGY?") || query === "tech") {
+        window.location.href = "technology.html";
+    } 
+    else if (query.includes("IMPORTANCE OF MEDIA LITERACY TO TECHNOLOGY") || query.includes("connection")) {
+        window.location.href = "importance.html";
+    } 
+    else if (query.includes("HOW DOES MEDIA LITERACY EMPOWER THE USE OF TECHNOLOGIES?")) {
+        window.location.href = "empowerment.html";
+    }
+    else if (query.includes("WHAT IS MEDIA LITERACY TO TECHNOLOGY?") || query == "connection"){
+        window.location.href = "connection.html"
+    }
+    
+    else if (query === "") {
+        alert("Please enter a topic to search!");
+    } 
+    else {
+        alert("Topic not found. Try 'Media', 'Technology', or 'Importance'.");
+    }
+}
+const topics = [
+    { name: "What is Media Literacy?", url: "media-literacy.html" },
+    { name: "What is Technology?", url: "technology.html" },
+    { name: "What is Media Literacy to Technology?", url: "connection.html" },
+    { name: "How Media Literacy Empowers Technology?", url: "empowerment.html" }
+];
+
+const searchInput = document.getElementById('userSearch');
+const suggestionsBox = document.getElementById('suggestionsBox');
+
+// LIVE SUGGESTIONS AS USER TYPES
+searchInput.addEventListener('input', () => {
+    const value = searchInput.value.toLowerCase();
+    suggestionsBox.innerHTML = '';
+    
+    if (value.length > 0) {
+        const filtered = topics.filter(t => t.name.toLowerCase().includes(value));
+        filtered.forEach(topic => {
+            const div = document.createElement('div');
+            div.innerHTML = topic.name;
+            div.onclick = () => {
+                window.location.href = topic.url;
+            };
+            suggestionsBox.appendChild(div);
+        });
+        suggestionsBox.style.display = filtered.length > 0 ? 'block' : 'none';
+    } else {
+        suggestionsBox.style.display = 'none';
+    }
+});
+
+// EXECUTE SEARCH ON BUTTON OR ENTER
+function executeSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    const match = topics.find(t => t.name.toLowerCase().includes(query));
+    
+    if (match) {
+        window.location.href = match.url;
+    } else {
+        alert("Topic not found. Try searching 'Media' or 'Technology'.");
+    }
+}
+
+// Close suggestions if user clicks away
+document.addEventListener('click', (e) => {
+    if (e.target !== searchInput) suggestionsBox.style.display = 'none';
+});
     </script>
 </body>
 </html>
