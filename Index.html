@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SyncPoint | Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="overlay" onclick="closeAll()"></div>
+
+    <div class="top-nav-icons">
+        <div class="icon-group" onclick="toggleAbout()">
+            <div class="user-circle">👤</div>
+            <span>ABOUT US</span>
+        </div>
+        <div class="icon-group" onclick="toggleMenu()">
+            <div class="dots-menu">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+            <span>MENU</span>
+        </div>
+    </div>
+
+    <aside class="sidebar-left" id="aboutSidebar">
+        <h2 class="glow-text">ABOUT US</h2>
+        <div class="content-scroll">
+            <p>At <strong>SyncPoint</strong>, we believe that the rapid advancement of digital tools should not outpace our ability to understand them. Our mission is to explore how Media Literacy serves as the essential cognitive operating system for the modern world.</p>
+        </div>
+        <button class="close-btn" onclick="toggleAbout()">× Close</button>
+    </aside>
+
+    <aside class="sidebar-right" id="menuSidebar">
+        <h3 class="glow-text">TOPICS</h3>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">HOME</a></li>
+                <li><a href="media-literacy.html">WHAT IS MEDIA LITERACY? ↘</a></li>
+                <li><a href="technology.html">WHAT IS TECHNOLOGY? ↘</a></li>
+                <li><a href="connection.html">WHAT IS MEDIA LITERACY TO TECHNOLOGY? ↘</a></li>
+                <li><a href="importance.html">IMPORTANCE OF MEDIA LITERACY TO TECHNOLOGY ↘</a></li>
+                <li><a href="empowerment.html">HOW DOES MEDIA LITERACY EMPOWER THE USE OF TECHNOLOGIES? ↘</a></li>
+            </ul>
+        </nav>
+        <button class="close-btn" onclick="toggleMenu()">× Close</button>
+    </aside>
+
+    <main class="center-stage">
+        <div class="logo-container">
+            <img src="Syncpoint.jpg" alt="SyncPoint Logo" class="google-style-logo">
+            <h1 class="brand-title">SyncPoint</h1>
+            <p class="tagline">Where literacy meets technology.</p>
+        </div>
+
+        <div class="google-search-container">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="google-input" placeholder="Search SyncPoint...">
+                <span class="mic-icon">🎤</span>
+            </div>
+            <div class="button-row">
+                <button class="google-btn">SyncPoint Search</button>
+                <button class="google-btn">I'm Feeling Techy</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function toggleAbout() {
+            document.getElementById('aboutSidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active-overlay');
+            // Close the other one if it's open
+            document.getElementById('menuSidebar').classList.remove('open');
+        }
+        function toggleMenu() {
+            document.getElementById('menuSidebar').classList.toggle('open');
+            document.getElementById('overlay').classList.toggle('active-overlay');
+            // Close the other one if it's open
+            document.getElementById('aboutSidebar').classList.remove('open');
+        }
+        function closeAll() {
+            document.getElementById('aboutSidebar').classList.remove('open');
+            document.getElementById('menuSidebar').classList.remove('open');
+            document.getElementById('overlay').classList.remove('active-overlay');
+        }
+    </script>
+</body>
+</html>
